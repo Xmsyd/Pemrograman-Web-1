@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAKTIKUM 2 - Form Validation</title>
+    <!-- mengatur posisi -->
+    <link rel="stylesheet" href="css/positioning.css">
+    <!-- Desain Web -->
+    <link rel="stylesheet" href="css/desain.css">
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        p {
+            color: red;
+            float: left;
+            margin-left: 1.5em;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+    </style>
+
+    <script>
+        function dekor1() {
+            dekor_1 = document.getElementById("home");
+            dekor_1.style.color = "aqua";
+        }
+
+        function dekor2() {
+            dekor_2 = document.getElementById("home");
+            dekor_2.style.color = "black";
+        }
+
+        function validasi() {
+            let isian_nama = document.getElementById("name").value;
+            let p = document.getElementById("nama");
+
+            let isian_email = document.getElementById("email1").value;
+            let p1 = document.getElementById("imel");
+
+            let isian_jam = document.getElementById("jam").value;
+            let p2 = document.getElementById("jamm");
+
+            let isian_tujuan = document.getElementById("tujuan").value;
+            let p3 = document.getElementById("tjn");
+
+            let isian_tiket = document.getElementById("tiket").value;
+            let p4 = document.getElementById("tkt");
+
+            if(isian_nama == "") {
+                p.innerHTML = `<p>` + "Nama tidak valid." + `</p>`;
+                isian_nama.focus();
+            }else if(isian_nama.length > 30) {
+                p.innerHTML = `<p>` + "Maksimum 30 karakter." + `</p>`;
+            }else{
+                p.innerHTML = `<p></p>`;
+            }
+
+            if(isian_email == "") {
+                p1.innerHTML = `<p>` + "Email wajib diisi." + `</p>`
+            }else if(isian_email.length <= 9 || isian_email == "@gmail.com"){
+                p1.innerHTML = `<p>` + "Email tidak valid." + `</p>`
+            }else{
+                p1.innerHTML = `<p></p>`;
+            }
+
+            if(isian_jam == "") {
+                p2.innerHTML = `<p>` + "Jam Keberangkatan wajib diisi." + `</p>`
+            }else{
+                p2.innerHTML = `<p></p>`
+            }
+            
+            if(isian_tujuan == "") {
+                p3.innerHTML = `<p>` + "Tujuan Keberangkatan wajib diisi." + `</p>`
+            }else{
+                p3.innerHTML = `<p></p>`
+            }
+
+            if(isian_tiket == "" || isian_tiket <= 0) {
+                p4.innerHTML = `<p>` + "Pembelian tiket minimal 1 tiket dan maximal 10 tiket." + `</p>`
+            }else if(isian_tiket > 10){
+                p4.innerHTML = `<p>` + "Maximum 10 tiket." + `</p>`
+            }else{
+                p4.innerHTML = `<p></p>`
+            }
+
+            document.getElementById("output-nama").innerHTML = isian_nama;
+            document.getElementById("output-email").innerHTML = isian_email;
+            document.getElementById("output-jam").innerHTML = isian_jam;
+            document.getElementById("output-tujuan").innerHTML = isian_tujuan;
+            document.getElementById("output-tiket").innerHTML = isian_tiket;
+
+
+            window.scrollTo(0,1000);
+
+            document.getElementsByClassName("hasil")[0].style.display = "block";
+            return false;
+
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Validasi Tiket</h1></a>
+    <hr>
+    <br>
+    <div class="container">
+        <form onsubmit="return validasi();">
+            <div class="form-group">
+                <div class="flex">       
+                    <label style="float: left;" for="name" class="">Nama Pelanggan</label><p id="nama"></p>
+                </div>
+                <input type="text" class="form-control" placeholder="Nama Pelanggan" id="name">
+            </div>
+            <div class="form-group">
+                <div class="flex">
+                    <label style="float: left;" for="email" class="">Email</label><p id="imel"></p>
+                </div>
+                <input type="text" class="form-control" placeholder="Email" id="email1">
+            </div>
+            <div class="form-group">
+                <div class="flex">
+                    <label for="jam" class="">Jam Keberangkatan</label><p id="jamm"></p>
+                </div>
+                <input type="time" class="form-control" placeholder="Jam Keberangkatan" id="jam">
+            </div>
+            <div class="form-group">
+                <div class="flex"> 
+                    <label for="tujuan" class="">Tujuan Keberangkatan</label><p id="tjn"></p>
+                </div>
+                <input type="text" class="form-control" placeholder="Tujuan Keberangkatan" id="tujuan">
+            </div>
+            <div class="form-group">
+                <div class="flex">
+                    <label for="tiket" class="">Jumlah Tiket</label><p id="tkt"></p>
+                </div>
+                <input type="number" class="form-control" placeholder="Jumlah Tiket" id="tiket">
+            </div>
+            <div class="form-group">
+                <input onclick="validasi()" type="submit" value="Pesan Sekarang" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+
+    <div class="hasil">
+        <table>
+            <tr>
+                <td>Nama Pelanggan</td>
+                <td>:</td>
+                <td><p id="output-nama"></p></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>:</td>
+                <td><p id="output-email"></p></td>
+            </tr>
+            <tr>
+                <td>Jam Keberangkatan</td>
+                <td>:</td>
+                <td><p id="output-jam"></p></td>
+            </tr>
+            <tr>
+                <td>Tujuan Keberangkatan</td>
+                <td>:</td>
+                <td><p id="output-tujuan"></p></td>
+            </tr>
+            <tr>
+                <td>Jumlah Tiket</td>
+                <td>:</td>
+                <td><p id="output-tiket"></p></td>
+            </tr>
+        </table>
+    </div>
+
+    
+</body>
+</html>
