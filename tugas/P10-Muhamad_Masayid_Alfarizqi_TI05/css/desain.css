@@ -1,0 +1,47 @@
+body {
+    background-color: #E7DED9;
+}
+
+h1 {
+    background-color: #13292A;
+    color: #FFFFFF;
+    border-radius: 30px;
+    padding: 5px 0 5px 0;
+}
+
+label {
+    background-color: #988780;
+    border-radius: 30px;
+    padding: 10px;
+    color: #FFFFFF;
+}
+
+.form-control {
+    border-radius: 30px;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #C4AE78;
+    border-color: #171515;
+    border-radius: 15px;
+    padding: 5px;
+  }
+
+.hasil{
+    display: none;
+    margin: auto;
+    background-color: #171515;
+    border-radius: 30px;
+    padding: 30px;
+    height: 100px auto;
+    width: 300px;
+}
+
+.hasil td {
+    color: #fff;
+}
+
+.hasil p {
+    color: lime;
+}

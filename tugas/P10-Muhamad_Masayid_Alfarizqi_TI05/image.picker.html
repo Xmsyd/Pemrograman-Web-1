@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Picker</title>
+    <style>
+        body {
+            background-color: #2C5E1A;
+        }
+
+        select {
+            background-color: #B2D2A4;
+        }
+
+        #image {
+            height: auto;
+            width: 90%;
+            margin: 3px;
+            border: inset 3px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+        <select name="dropdown_img" id="dropdown_img" onchange="gambar()">
+            <option hidden>- - - P i l i h G a m b a r - - -</option>
+            <option value="gorila">Gorila</option>
+            <option value="singa">Singa</option>
+            <option value="elang">Elang</option>
+        </select>
+        <br />
+        <img alt="gambar" id="image" />
+
+    <script>
+        function gambar() {
+            let drop_img = document.getElementById("dropdown_img").value;
+            let image = document.getElementById("image");
+
+            if (drop_img == "gorila") {
+                image.setAttribute(
+                    "src",
+                    "https://th.bing.com/th/id/R.40bc5b314effc5286dd2953471938072?rik=6nbD4bU%2f3jcPDg&riu=http%3a%2f%2fichef.bbci.co.uk%2fnews%2f976%2fcpsprodpb%2f1124E%2fproduction%2f_91922207_kumbuka976.jpg&ehk=fxWIE4QK8suFcRBm6tDTqdxQe3KoGn0mRAeobA8sbBM%3d&risl=&pid=ImgRaw&r=0"
+                );
+                alert("ini gambar gorila")
+            } else if (drop_img == "singa") {
+                image.setAttribute(
+                    "src",
+                    "https://th.bing.com/th/id/R.b414f36e4908aca3c2517f3ec4f52f45?rik=Ui0sbjH4Cfw9hg&riu=http%3a%2f%2f3.bp.blogspot.com%2f-sFh2EZqxwNc%2fT7uWGM1bc1I%2fAAAAAAAACcg%2fFU3cvapd4RI%2fs1600%2flions%2bwallpaper%2b1.jpg&ehk=r%2bUIdEzkrtgfLjfEVWqIWvGrdWjbEWBJuqK7BlJSw6M%3d&risl=&pid=ImgRaw&r=0"
+                );
+                alert("ini gambar singa");
+            } else if (drop_img == "elang") {
+                image.setAttribute(
+                    "src",
+                    "https://thegorbalsla.com/wp-content/uploads/2019/06/Keunikan-Burung-Elang-700x529.jpg"
+                );
+                alert("ini gambar elang")
+            }
+        }
+    </script>
+</body>
+
+</html>
